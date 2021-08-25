@@ -169,11 +169,23 @@ namespace SimplyCalculator
                 case "=":
                     flagDisplay = true;
                     listExp.Push(this.txtDisplay.Text);
-                    this.txtErr.Text += this.txtDisplay.Text; 
+                    if (this.txtErr.Text.Contains("=") )
+                    {
+                        this.txtErr.Text = this.txtDisplay.Text;
+                    }
+                    else
+                    {
+                        this.txtErr.Text += this.txtDisplay.Text;
+                    }
                     if (listExp.Count == 3)
                     {
                         this.txtDisplay.Text = getSum().ToString();
-                        this.txtErr.Text = this.txtErr.Text + "=" +this.txtDisplay.Text;
+                        this.txtErr.Text = this.txtErr.Text + "=" + this.txtDisplay.Text;
+                        listExp.Clear();
+                    }
+                    else
+                    {
+                        this.txtErr.Text = "";
                         listExp.Clear();
                     }
                     break;
