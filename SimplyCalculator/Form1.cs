@@ -193,6 +193,7 @@ namespace SimplyCalculator
                     if (this.txtErr.Text.Contains("="))
                     {
                         this.txtErr.Text = "";
+                        flagDisplay = false;
                     }
                     this.txtDisplay.Text = this.txtDisplay.Text.Length <= 1 ? "0" : this.txtDisplay.Text.Substring(0, this.txtDisplay.Text.Length - 1);
                     break;
